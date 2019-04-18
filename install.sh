@@ -6,4 +6,5 @@ if [ -f ~/.config/nvim/init.vim ];then
 	exit 1
 else
 	curl -fLo ~/.config/nvim/init.vim --create-dirs https://raw.githubusercontent.com/rtisma/nvim-dotfiles/master/init.vim
+	nvim -c ":PlugInstall"
 fi
