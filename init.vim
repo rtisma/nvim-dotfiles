@@ -177,13 +177,18 @@ set history=3000                    " Store a ton of history (default is 20)
 set hidden                          " Allow buffer switching without saving
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
-set cursorline
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
+
+" This made it really slow
+"set cursorline
+"highlight clear SignColumn      " SignColumn should match background
+"highlight clear LineNr          " Current line number row will have same background color in relative mode
 
 " Yank from the cursor to the end of the line, to be consistent with C and D.
 nnoremap Y y$
 nmap <silent> <leader>/ :nohlsearch<CR>
+
+set foldmethod=expr
+set foldlevelstart=9999
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""''
 "     Solarized config
@@ -314,7 +319,7 @@ nnoremap <Leader>m :MarkdownPreview<CR>
 "  For example: deadlink detection, TOC creation and updating
 " :h mkdx
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" list of mappings https://github.com/SidOfc/mkdx#mappings
+nmap <Leader>i  <Plug>(mkdx-gen-or-upd-toc)
 let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
                         \ 'enter': { 'shift': 1 },
                         \ 'links': { 'external': { 'enable': 1 } },
