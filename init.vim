@@ -18,74 +18,77 @@ if has('vim')
 endif
 
 call plug#begin()
-Plug 'https://github.com/airblade/vim-gitgutter'
-Plug 'https://github.com/vim-airline/vim-airline'
-Plug 'https://github.com/vim-airline/vim-airline-themes'
-Plug 'https://github.com/dhruvasagar/vim-open-url'
-Plug 'https://github.com/scrooloose/nerdTree'
-Plug 'https://github.com/xuyuanp/nerdtree-git-plugin'
-Plug 'https://github.com/ctrlpvim/ctrlp.vim'
-Plug 'https://github.com/easymotion/vim-easymotion'
-Plug 'https://github.com/tpope/vim-eunuch'
-Plug 'https://github.com/tpope/vim-surround'
-Plug 'https://github.com/altercation/vim-colors-solarized'
+" Markdown processing
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'https://github.com/SidOfc/mkdx'
-Plug 'https://github.com/roxma/vim-tmux-clipboard'
+
+" File and text searching 
+Plug 'https://github.com/scrooloose/nerdTree'
+Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+Plug 'https://github.com/easymotion/vim-easymotion'
+Plug 'https://github.com/bronson/vim-visual-star-search'
+
+" Appearance
+Plug 'https://github.com/chrisbra/Colorizer'
+Plug 'https://github.com/vim-airline/vim-airline'
+Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/tyrannicaltoucan/vim-quantum'
+Plug 'https://github.com/chrisbra/colorizer'
+Plug 'https://github.com/altercation/vim-colors-solarized'
+Plug 'https://github.com/bling/vim-bufferline'
+
+" Syntax highlighting
+Plug 'https://github.com/ekalinin/dockerfile.vim'
+Plug 'https://github.com/stephpy/vim-yaml'
+Plug 'https://github.com/uarun/vim-protobuf'
+Plug 'https://github.com/soramugi/auto-ctags.vim'
+Plug 'https://github.com/craigemery/vim-autotag'
+Plug 'https://github.com/vim-scripts/taglist.vim'
+Plug 'https://github.com/elzr/vim-json'
+
+" Code formatting
+Plug 'https://github.com/junegunn/vim-easy-align'
+Plug 'https://github.com/chiel92/vim-autoformat'
+Plug 'https://github.com/nathanaelkane/vim-indent-guides'
+Plug 'https://github.com/townk/vim-autoclose'
+Plug 'https://github.com/scrooloose/nerdcommenter'
+Plug 'https://github.com/tpope/vim-surround'
+Plug 'https://github.com/tmux-plugins/vim-tmux'
+Plug 'https://github.com/matze/vim-move'
+" Alternative if vim-autoclose starts acting up
+"     Plug 'https://github.com/raimondi/delimitmate'
 
 " Git stuff
 Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v2.5' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/arkwright/vim-radar'
-
-Plug 'https://github.com/jiangmiao/auto-pairs'
-" Use these if auto-pairs sucks
-"Plug 'https://github.com/raimondi/delimitmate'
-"Plug 'https://github.com/townk/vim-autoclose'
-
-Plug 'https://github.com/vim-scripts/taglist.vim'
-Plug 'https://github.com/benmills/vimux'
-Plug 'https://github.com/junegunn/vim-easy-align'
-Plug 'https://github.com/nathanaelkane/vim-indent-guides'
-Plug 'https://github.com/scrooloose/nerdcommenter'
-Plug 'https://github.com/ekalinin/dockerfile.vim'
-Plug 'https://github.com/chiel92/vim-autoformat'
-Plug 'https://github.com/bling/vim-bufferline'
-Plug 'https://github.com/craigemery/vim-autotag'
-Plug 'https://github.com/chrisbra/colorizer'
-
-Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight'
-Plug 'https://github.com/tmux-plugins/vim-tmux'
-Plug 'https://github.com/ajh17/vimcompletesme'
-Plug 'https://github.com/bogado/file-line'
-Plug 'https://github.com/will133/vim-dirdiff'
-Plug 'https://github.com/bronson/vim-visual-star-search'
-Plug 'https://github.com/uarun/vim-protobuf'
-Plug 'https://github.com/christoomey/vim-system-copy'
-
+Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/cohama/agit.vim'  "Useage :Agit
-Plug 'https://github.com/matze/vim-move'
-Plug 'https://github.com/stephpy/vim-yaml'
-Plug 'https://github.com/soramugi/auto-ctags.vim'
 
-"Themes
-"Plug 'https://github.com/tyrannicaltoucan/vim-quantum'
-"Plug 'https://github.com/jdkanani/vim-material-theme'
-
-"Also cool
+" Disabled because will delete multiple white spaces. made it really difficult to type
+" Plug 'https://github.com/jiangmiao/auto-pairs'
 "
-"Plug 'https://github.com/svermeulen/vim-easyclip'
+
+" Tmux interaction
+Plug 'https://github.com/benmills/vimux'
+Plug 'https://github.com/roxma/vim-tmux-clipboard'
+
+" Other Neat tools
+Plug 'https://github.com/ajh17/vimcompletesme'
+Plug 'https://github.com/will133/vim-dirdiff'
+Plug 'https://github.com/christoomey/vim-system-copy'
+Plug 'https://github.com/dhruvasagar/vim-open-url'
+Plug 'https://github.com/tpope/vim-eunuch'
+
+" To try out later...
 "Plug 'https://github.com/christoomey/vim-tmux-navigator'
 "Plug 'https://github.com/svermeulen/vim-easyclip'
-"Plug 'https://github.com/elzr/vim-json'
-"Plug 'https://github.com/thaerkh/vim-workspace'
 "Plug 'https://github.com/xolox/vim-easytags'
 "Plug 'https://github.com/dkprice/vim-easygrep'
+"Plug 'https://github.com/thaerkh/vim-workspace'
 "Plug 'https://github.com/jez/vim-superman'
 "Plug 'https://github.com/wesq3/vim-windowswap'
-"
 call plug#end()
-"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  General Vim config
@@ -127,13 +130,17 @@ map <Leader>* :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
 map <Leader>g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
 
 " open vimrc using :Vimrc
-command! Vimrc :sp $MYVIMRC
+command! SVimrc :sp $MYVIMRC
+command! Vimrc :e $MYVIMRC
 command! Reload :source $MYVIMRC
 
 " Cycle through buffers. Usefull with ctrlp
 nnoremap xl :bnext<CR>
 nnoremap xh :bprevious<CR>
 nnoremap xd :bdelete<CR>
+
+set foldmethod=expr
+set foldlevelstart=9999
 
 """"""""""""""""""""""""""""""""""""""
 " Taken from spf13
@@ -187,16 +194,17 @@ set virtualedit=onemore             " Allow for cursor beyond last character
 nnoremap Y y$
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-set foldmethod=expr
-set foldlevelstart=9999
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""''
 "     Solarized config
 "     https://github.com/iCyMind/NeoSolarized
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+"
+set termguicolors "needed for quantum
+let g:quantum_italics=1
+colorscheme quantum
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter config
@@ -206,15 +214,10 @@ colorscheme solarized
 set updatetime=100
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hv <Plug>GitGutterPreviewHunk
-highlight GitGutterAdd    guifg=#009900 guibg=#073642 ctermfg=2 ctermbg=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""''
 " vim-airline
 """""""""""""""""""""""""""""""""""""""""""""""""
-"To install fonts manually run the following:
-" curl https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf -create-dirs -o ~/.local/share/fonts/PowerlineSymbols.otf
-" curl https://raw.githubusercontent.com/powerline/powerline/develop/font/10-powerline-symbols.conf -create-dirs -o ~/.config/fontconfig/conf.d/10-powerline-symbols.conf
-" fc-cache -vf ~/.local/share/fonts/
 " Taken from https://powerline.readthedocs.io/en/master/installation/linux.html#fontconfig
 if exists(':AirlineRefresh')
 	echo 'hi, airline exists!'
@@ -237,7 +240,8 @@ endif
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
-let g:airline_theme='badwolf'
+"let g:airline_theme='badwolf'
+let g:airline_theme='quantum'
 let g:airline_extensions = ['branch', 'tabline']
 "let g:airline_theme='deus'
 "let g:airline_theme='papercolor'
@@ -259,8 +263,6 @@ nmap <Leader>g <Plug>(open-url-google-search)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <C-n> :NERDTreeToggle<CR>
 nmap <Leader>n :NERDTreeToggle<CR>
-let g:NERDTreeChDirMode = 2 "automatically sets current root
-imap <C-n> <ESC>:NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-surround config
@@ -332,9 +334,8 @@ let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>t :TlistToggle<CR>
 
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vimux
+" *vimux*
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>r  :VimuxPromptCommand<CR>
 
@@ -355,7 +356,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NERD commenter
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype plugin on
+"filetype plugin on
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-fugitive
@@ -373,13 +374,6 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ctrlp funky
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <Leader>fu :CtrlPFunky<Cr>
-" narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-system-copy
@@ -391,3 +385,10 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 " cv  --> past contents of system clipboard to next line
 
 "TODO: figure out what is deleting lines empty lines. 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorizer
+" When toggles on, will highlight a #hex value with the corrresponding color
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <Leader>C  :ColorToggle<CR>
+
