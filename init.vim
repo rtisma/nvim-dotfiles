@@ -25,6 +25,7 @@ Plug 'https://github.com/SidOfc/mkdx'
 " File and text searching 
 Plug 'https://github.com/scrooloose/nerdTree'
 Plug 'https://github.com/ctrlpvim/ctrlp.vim'
+
 Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/bronson/vim-visual-star-search'
 
@@ -194,17 +195,6 @@ set virtualedit=onemore             " Allow for cursor beyond last character
 nnoremap Y y$
 nmap <silent> <leader>/ :nohlsearch<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""''
-"     Solarized config
-"     https://github.com/iCyMind/NeoSolarized
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-syntax enable
-set background=dark
-"colorscheme solarized
-"
-set termguicolors "needed for quantum
-let g:quantum_italics=1
-colorscheme quantum
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter config
@@ -391,4 +381,18 @@ nnoremap <silent> <leader>gg :SignifyToggle<CR>
 " When toggles on, will highlight a #hex value with the corrresponding color
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>C  :ColorToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""''
+"     Colorscheme config
+"     https://github.com/iCyMind/NeoSolarized
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+syntax enable
+set background=dark
+silent! colorscheme solarized
+"
+"
+set termguicolors "needed for quantum
+let g:quantum_italics=1
+
+silent! colorscheme quantum
 
