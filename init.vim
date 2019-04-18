@@ -36,6 +36,7 @@ Plug 'https://github.com/roxma/vim-tmux-clipboard'
 " Git stuff
 Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v2.5' }
 Plug 'https://github.com/gregsexton/gitv'
+Plug 'https://github.com/arkwright/vim-radar'
 
 Plug 'https://github.com/jiangmiao/auto-pairs'
 " Use these if auto-pairs sucks
@@ -48,12 +49,43 @@ Plug 'https://github.com/junegunn/vim-easy-align'
 Plug 'https://github.com/nathanaelkane/vim-indent-guides'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/ekalinin/dockerfile.vim'
+Plug 'https://github.com/chiel92/vim-autoformat'
+Plug 'https://github.com/bling/vim-bufferline'
+Plug 'https://github.com/craigemery/vim-autotag'
+Plug 'https://github.com/chrisbra/colorizer'
 
-" Also cool
+Plug 'https://github.com/tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'https://github.com/tmux-plugins/vim-tmux'
+Plug 'https://github.com/ajh17/vimcompletesme'
+Plug 'https://github.com/bogado/file-line'
+Plug 'https://github.com/will133/vim-dirdiff'
+Plug 'https://github.com/bronson/vim-visual-star-search'
+Plug 'https://github.com/uarun/vim-protobuf'
+Plug 'https://github.com/christoomey/vim-system-copy'
+
+Plug 'https://github.com/cohama/agit.vim'  "Useage :Agit
+Plug 'https://github.com/matze/vim-move'
+Plug 'https://github.com/stephpy/vim-yaml'
+Plug 'https://github.com/soramugi/auto-ctags.vim'
+
+"Themes
+"Plug 'https://github.com/tyrannicaltoucan/vim-quantum'
+"Plug 'https://github.com/jdkanani/vim-material-theme'
+
+"Also cool
+"
+"Plug 'https://github.com/svermeulen/vim-easyclip'
 "Plug 'https://github.com/christoomey/vim-tmux-navigator'
 "Plug 'https://github.com/svermeulen/vim-easyclip'
 "Plug 'https://github.com/elzr/vim-json'
+"Plug 'https://github.com/thaerkh/vim-workspace'
+"Plug 'https://github.com/xolox/vim-easytags'
+"Plug 'https://github.com/dkprice/vim-easygrep'
+"Plug 'https://github.com/jez/vim-superman'
+"Plug 'https://github.com/wesq3/vim-windowswap'
+"
 call plug#end()
+"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  General Vim config
@@ -98,11 +130,60 @@ map <Leader>g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
 command! Vimrc :sp $MYVIMRC
 command! Reload :source $MYVIMRC
 
-
 " Cycle through buffers. Usefull with ctrlp
 nnoremap xl :bnext<CR>
 nnoremap xh :bprevious<CR>
 nnoremap xd :bdelete<CR>
+
+""""""""""""""""""""""""""""""""""""""
+" Taken from spf13
+""""""""""""""""""""""""""""""""""""""
+set backspace=indent,eol,start  " Backspace for dummies
+set linespace=0                 " No extra spaces between rows
+set number                      " Line numbers on
+set showmatch                   " Show matching brackets/parenthesis
+set incsearch                   " Find as you type search
+set hlsearch                    " Highlight search terms
+set winminheight=0              " Windows can be 0 line high
+set smartcase                   " Case sensitive when uc present
+set wildmenu                    " Show list instead of just completing
+set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
+set scrolljump=5                " Lines to scroll when cursor leaves screen
+set scrolloff=3                 " Minimum lines to keep above and below cursor
+set foldenable                  " Auto fold code
+set list
+set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight proble
+" Shortcuts
+" Change Working Directory to that of the current file
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
+" Visual shifting (does not exit Visual mode)
+vnoremap < <gv
+vnoremap > >gv
+
+"sdfsdf
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
+set nocompatible        " Must be first line
+filetype plugin indent on   " Automatically detect file types.
+syntax on                   " Syntax highlighting
+set mouse=a                 " Automatically enable mouse usage
+set mousehide               " Hide the mouse cursor while typing
+scriptencoding utf-8
+set history=3000                    " Store a ton of history (default is 20)
+set hidden                          " Allow buffer switching without saving
+set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set virtualedit=onemore             " Allow for cursor beyond last character
+set cursorline
+highlight clear SignColumn      " SignColumn should match background
+highlight clear LineNr          " Current line number row will have same background color in relative mode
+
+" Yank from the cursor to the end of the line, to be consistent with C and D.
+nnoremap Y y$
+nmap <silent> <leader>/ :nohlsearch<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""''
 "     Solarized config
@@ -286,3 +367,22 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 " Mnemonic _i_nteractive
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ctrlp funky
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-system-copy
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Copy vim text to system clipboard
+" cpiw --> copies word to system clipboad
+" cpi' --> copies text inside single quotes to system clipboard
+" cP  --> copy current line directly
+" cv  --> past contents of system clipboard to next line
+
+"TODO: figure out what is deleting lines empty lines. 
