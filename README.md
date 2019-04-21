@@ -14,7 +14,7 @@
 ## Instructions
 
 ### 1. Prerequisites
-1. Install nvim (>= 0.3) and its dependencies
+Install nvim (>= 0.3) and its dependencies
 ```bash
 sudo apt install -y software-properties-common && sudo add-apt-repository ppa:neovim-ppa/stable -y && sudo apt update && sudo apt install -y neovim git curl exuberant-ctags
 ```
@@ -31,7 +31,7 @@ sudo update-alternatives --config editor
 ```
 
 ### 3. NVIM Plugin Installation
-2. Run the one-time initial installation of dependencies. Open the [script](https://github.com/rtisma/nvim-dotfiles/blob/master/init.vim) for more details:
+Run the one-time initial installation of dependencies. Open the [script](https://github.com/rtisma/nvim-dotfiles/blob/master/init.vim) for more details:
 ```bash
 sh <(curl  http://bit.ly/2Gthnpi -L)
 ```
@@ -54,6 +54,16 @@ Then start nvim again using `nvim`, and
 and much more. 
 
 Refer to the Plug list for more details: `:sp /root/.config/nvim/init.vim`
+
+## Building the latest neovim
+Especially for the raspberry pi, run these commands to build nvim for any linux architecture:
+```bash
+sudo apt-get install git libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+```
 
 
 ## Help
