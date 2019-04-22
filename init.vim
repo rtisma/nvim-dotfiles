@@ -36,7 +36,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/tyrannicaltoucan/vim-quantum'
 Plug 'https://github.com/chrisbra/colorizer'
 Plug 'https://github.com/altercation/vim-colors-solarized'
-Plug 'https://github.com/bling/vim-bufferline'
+" Removed since already integrated in airline Plug 'https://github.com/bling/vim-bufferline'
 
 " Syntax highlighting
 Plug 'https://github.com/ekalinin/dockerfile.vim'
@@ -80,6 +80,14 @@ Plug 'https://github.com/will133/vim-dirdiff'
 Plug 'https://github.com/christoomey/vim-system-copy'
 Plug 'https://github.com/dhruvasagar/vim-open-url'
 Plug 'https://github.com/tpope/vim-eunuch'
+
+" Ranger - terminal filebrowser
+" Note: Excluded because its buggy. Doesnt open files properly
+" For example, visual select mp3 files and press r to open 
+" with vlc, and doesnt work properly
+"Plug 'https://github.com/francoiscabrol/ranger.vim'
+"Plug 'https://github.com/rbgrouleff/bclose.vim'
+
 
 " To try out later...
 "Plug 'https://github.com/christoomey/vim-tmux-navigator'

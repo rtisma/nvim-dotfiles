@@ -6,5 +6,5 @@ RUN apt update && \
 	apt update && \
 	apt install -y neovim git curl exuberant-ctags
 
-RUN curl -fLo ~/.config/nvim/init.vim --create-dirs https://raw.githubusercontent.com/rtisma/nvim-dotfiles/master/init.vim
+COPY ./init.vim ~/.config/nvim/init.vim
 CMD bash
