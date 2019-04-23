@@ -20,6 +20,7 @@ endif
 call plug#begin()
 " Markdown processing
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'https://github.com/gabrielelana/vim-markdown'
 Plug 'https://github.com/SidOfc/mkdx'
 
 " File and text searching 
@@ -143,10 +144,16 @@ nnoremap <C-Right> :vertical resize +5<CR>
 nnoremap <C-Left> :vertical resize -5<CR>
 
 " While in INSERT mode, move to the BEGINNING of the line
-inoremap <C-h> <Home>
+inoremap <M-h> <Home>
 
 " While in INSERT mode, move to the END of the line
-inoremap <C-l> <End>
+inoremap <M-l> <End>
+
+" While in INSERT mode, move to the LEFT
+inoremap <C-h> <Left>
+
+" While in INSERT mode, move to the RIGHT
+inoremap <C-l> <Right>
 
 " While in INSERT mode, move UP one line
 inoremap <C-k> <Up>
@@ -210,7 +217,6 @@ cmap cd. lcd %:p:h
 vnoremap < <gv
 vnoremap > >gv
 
-"sdfsdf
 
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
@@ -405,6 +411,19 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Spelling config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reference: https://www.ostechnix.com/use-spell-check-feature-vim-text-editor/
+" z= --> suggest spelling
+" zg --> add to dictionary
+" zug --> remove from dictionary
+augroup markdownSpell
+    autocmd!
+    autocmd FileType markdown setlocal spell
+    autocmd BufRead,BufNewFile *.md setlocal spell
+augroup END
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-system-copy
@@ -437,3 +456,8 @@ let g:quantum_italics=1
 
 silent! colorscheme quantum
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     vim-markdown config
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:markdown_enable_mappings = 0
+let g:markdown_enable_spell_checking = 1
