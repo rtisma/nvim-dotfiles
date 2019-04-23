@@ -28,6 +28,7 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 
 Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/bronson/vim-visual-star-search'
+Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Appearance
 Plug 'https://github.com/chrisbra/Colorizer'
@@ -128,6 +129,12 @@ map <C-j>  <C-w>j
 map <C-k>  <C-w>k
 map <C-h>  <C-w>h
 map <C-l>  <C-w>l
+
+" Change the size of the current window
+nnoremap <C-Up> :resize +5<CR>
+nnoremap <C-Down> :resize -5<CR>
+nnoremap <C-Left> :vertical resize -5<CR>
+nnoremap <C-Right> :vertical resize +5<CR>
 
 "This turns "jk" into <esc>. Will save you the time for hitting esc
 inoremap jk <esc>
