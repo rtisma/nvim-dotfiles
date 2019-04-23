@@ -130,11 +130,35 @@ map <C-k>  <C-w>k
 map <C-h>  <C-w>h
 map <C-l>  <C-w>l
 
-" Change the size of the current window
+" Increase window vertical spacing
 nnoremap <C-Up> :resize +5<CR>
+
+" Decrease window vertical spacing
 nnoremap <C-Down> :resize -5<CR>
-nnoremap <C-Left> :vertical resize -5<CR>
+
+" Increase window horizontal spacing
 nnoremap <C-Right> :vertical resize +5<CR>
+
+" Decrease window horizontal spacing
+nnoremap <C-Left> :vertical resize -5<CR>
+
+" While in INSERT mode, move to the BEGINNING of the line
+inoremap <C-h> <Home>
+
+" While in INSERT mode, move to the END of the line
+inoremap <C-l> <End>
+
+" While in INSERT mode, move UP one line
+inoremap <C-k> <Up>
+
+" While in INSERT mode, move DOWN one line
+inoremap <C-j> <Down>
+
+" While in INSERT mode, move to the TOP of the file
+inoremap <C-g>k <ESC>ggi
+
+" While in INSERT mode, move to the BOTTOM of the file
+inoremap <C-g>j <ESC>Gi
 
 "This turns "jk" into <esc>. Will save you the time for hitting esc
 inoremap jk <esc>
@@ -347,6 +371,8 @@ nnoremap <Leader>r  :VimuxPromptCommand<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "    vim-easy-align
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Cheatsheet: https://devhints.io/vim-easyalign
+
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 
