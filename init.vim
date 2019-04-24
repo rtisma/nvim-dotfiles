@@ -189,6 +189,10 @@ nnoremap xd :bdelete<CR>
 set foldmethod=expr
 set foldlevelstart=9999
 
+" Replace the current line, with the yanked line, without modifying the yank
+" buffer
+nnoremap r p<Up>ddyy
+
 """"""""""""""""""""""""""""""""""""""
 " Taken from spf13
 """"""""""""""""""""""""""""""""""""""
