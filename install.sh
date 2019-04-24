@@ -1,10 +1,11 @@
 #!/bin/bash
 
+INIT_FILE=${HOME}/.config/nvim/init.vim
 
-if [ -f ~/.config/nvim/init.vim ];then
-	echo "The file `~/.config/nvim/init.vim` already exists. move it and re-run"
+if [ -f ${INIT_FILE} ];then
+	echo "The file '${INIT_FILE}' already exists. move it and re-run"
 	exit 1
 else
-	curl -fLo ~/.config/nvim/init.vim --create-dirs https://raw.githubusercontent.com/rtisma/nvim-dotfiles/master/init.vim
+	curl -fLo ${INIT_FILE} --create-dirs https://raw.githubusercontent.com/rtisma/nvim-dotfiles/master/init.vim
 	nvim -c ":PlugInstall"
 fi
