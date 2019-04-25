@@ -1,6 +1,6 @@
 #!/bin/bash
 
-INIT_FILE=${HOME}/.config/nvim/init.vim
+INIT_FILE=~/.config/nvim/init.vim
 
 if [ -f ${INIT_FILE} ];then
 	echo "The file '${INIT_FILE}' already exists. move it and re-run"
