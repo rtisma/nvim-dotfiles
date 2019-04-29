@@ -64,6 +64,13 @@ cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
 sudo make install
 ```
+## Forking and Contributing
+```bash
+mkdir -p ~/.config
+
+# After forking this repo, Replace <your_account_id> with your github user name 
+git clone git@github.com:<your_account_id>/nvim-dotfiles.git ~/.config/nvim
+```
 
 
 ## Help
