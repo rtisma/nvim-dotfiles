@@ -244,6 +244,11 @@ set virtualedit=onemore             " Allow for cursor beyond last character
 nnoremap Y y$
 nmap <silent> <leader>/ :nohlsearch<CR>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-json config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable quote concealing for json fields/values...really annoying
+let g:vim_json_syntax_conceal = 0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-gitgutter config
