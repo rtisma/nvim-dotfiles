@@ -21,7 +21,7 @@ call plug#begin()
 " Markdown processing
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'https://github.com/gabrielelana/vim-markdown'
-Plug 'https://github.com/SidOfc/mkdx'
+Plug 'https://github.com/SidOfc/mkdx' , { 'tag' : 'v1.9.0' }
 
 " File and text searching 
 Plug 'https://github.com/scrooloose/nerdTree'
@@ -366,11 +366,11 @@ nnoremap <Leader>m :MarkdownPreview<CR>
 " :h mkdx
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nmap <Leader>i  <Plug>(mkdx-gen-or-upd-toc)
-let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
-                        \ 'enter': { 'shift': 1 },
-                        \ 'links': { 'external': { 'enable': 1 } },
-                        \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
-                        \ 'fold': { 'enable': 1 } }
+"let g:mkdx#settings     = { 'highlight': { 'enable': 1 },
+"                        \ 'enter': { 'shift': 1 },
+"                        \ 'links': { 'external': { 'enable': 1 } },
+"                        \ 'toc': { 'text': 'Table of Contents', 'update_on_write': 1 },
+"                        \ 'fold': { 'enable': 1 } }
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -470,3 +470,8 @@ silent! colorscheme quantum
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:markdown_enable_mappings = 0
 let g:markdown_enable_spell_checking = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     vim-json
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:vim_json_syntax_conceal = 0
