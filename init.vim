@@ -193,6 +193,11 @@ set foldlevelstart=9999
 " buffer
 nnoremap r p<Up>ddyy
 
+" Remap increment to Ctrl+b+i, since ctrl+a reserved for tmux
+noremap <C-B>i <C-A><ESC>
+" Remap decrement to Ctrl+b+d, since ctrl+a reserved for tmux
+noremap <C-B>d <C-X><ESC>
+
 """"""""""""""""""""""""""""""""""""""
 " Taken from spf13
 """"""""""""""""""""""""""""""""""""""
@@ -475,3 +480,5 @@ let g:markdown_enable_spell_checking = 1
 "     vim-json
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_json_syntax_conceal = 0
+
+
