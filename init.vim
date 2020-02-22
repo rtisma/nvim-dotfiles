@@ -83,6 +83,10 @@ Plug 'https://github.com/christoomey/vim-system-copy'
 Plug 'https://github.com/dhruvasagar/vim-open-url'
 Plug 'https://github.com/tpope/vim-eunuch'
 
+" REST/HTTP Client in Vim (python3 support needed)
+Plug 'baverman/vial'
+Plug 'baverman/vial-http'
+
 " Ranger - terminal filebrowser
 " Note: Excluded because its buggy. Doesnt open files properly
 " For example, visual select mp3 files and press r to open 
