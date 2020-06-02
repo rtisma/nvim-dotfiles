@@ -48,6 +48,7 @@ Plug 'https://github.com/soramugi/auto-ctags.vim'
 Plug 'https://github.com/craigemery/vim-autotag'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 Plug 'https://github.com/elzr/vim-json'
+Plug 'https://github.com/pearofducks/ansible-vim'
 
 " Code formatting
 Plug 'https://github.com/junegunn/vim-easy-align'
@@ -484,5 +485,14 @@ let g:markdown_enable_spell_checking = 1
 "     vim-json
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_json_syntax_conceal = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     ansible-vim
+"   https://github.com/pearofducks/ansible-vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ansible_unindent_after_newline = 1
+let g:ansible_yamlKeyName = 'yamlKey'
+let g:ansible_name_highlight = 'd'
+
 
 
