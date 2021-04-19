@@ -303,6 +303,10 @@ let g:airline_extensions = ['branch', 'tabline']
 "let g:airline_theme='sol'
 "let g:airline_theme='luna'
 
+" Do not load python2 provider for neovim. Python2 will show as an error in
+" :checkhealth, however we dont want to run anything with python2
+let g:loaded_python_provider = 0
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-open-url
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -493,6 +497,7 @@ let g:vim_json_syntax_conceal = 0
 let g:ansible_unindent_after_newline = 1
 let g:ansible_yamlKeyName = 'yamlKey'
 let g:ansible_name_highlight = 'd'
+
 
 
 
