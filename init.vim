@@ -63,7 +63,7 @@ Plug 'https://github.com/matze/vim-move'
 "     Plug 'https://github.com/raimondi/delimitmate'
 
 " Git stuff
-Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v2.5' }
+Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v3.4' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/arkwright/vim-radar'
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -83,10 +83,13 @@ Plug 'https://github.com/will133/vim-dirdiff'
 Plug 'https://github.com/christoomey/vim-system-copy'
 Plug 'https://github.com/dhruvasagar/vim-open-url'
 Plug 'https://github.com/tpope/vim-eunuch'
+Plug 'https://github.com/vifm/vifm.vim'
 
 " REST/HTTP Client in Vim (python3 support needed)
-Plug 'baverman/vial'
-Plug 'baverman/vial-http'
+"Plug 'baverman/vial'
+"Plug 'baverman/vial-http'
+" Refer to https://vimawesome.com/plugin/vim-http-client
+Plug 'aquach/vim-http-client', { 'commit': '777c9a44872d14ae8d1d13f13c13a61da4aed852' }
 
 " Ranger - terminal filebrowser
 " Note: Excluded because its buggy. Doesnt open files properly
@@ -115,6 +118,7 @@ set wrap "enable wrapping. Use `set nowrap` to disable
 set nu "enable numbering. Use `set nonu` to disable
 set tabstop=4 "a tab will have the same length as 4 whitespaces
 set shiftwidth=0 " always have tab match tabstop
+
 
 " Get Rid of stupid Goddamned help keys
 inoremap <F1> <ESC>
@@ -222,6 +226,7 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
 set foldenable                  " Auto fold code
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight proble
+
 " Shortcuts
 " Change Working Directory to that of the current file
 cmap cwd lcd %:p:h
@@ -421,11 +426,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-fugitive
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>gs :Gstatus<CR>
+nnoremap <silent> <leader>gs :Git<CR><C-w>20-
+"nnoremap <silent> <leader>gs :Git<CR>
 nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gc :Git commit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
+"Conflict with diffget....not really needed anywways    nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gr :Gread<CR>
 nnoremap <silent> <leader>gw :Gwrite<CR>
@@ -433,6 +439,12 @@ nnoremap <silent> <leader>ge :Gedit<CR>
 " Mnemonic _i_nteractive
 nnoremap <silent> <leader>gi :Git add -p %<CR>
 nnoremap <silent> <leader>gg :SignifyToggle<CR>
+
+" Merge in the LEFT change
+nnoremap <silent> <leader>gh :diffget //2<CR> 
+
+" Merge in the RIGHT change
+nnoremap <silent> <leader>gl :diffget //3<CR> 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  Spelling config
