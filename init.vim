@@ -19,7 +19,7 @@ endif
 
 call plug#begin()
 " Markdown processing
-Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'https://github.com/gabrielelana/vim-markdown'
 Plug 'https://github.com/SidOfc/mkdx' , { 'tag' : 'v1.9.0' }
 
@@ -38,6 +38,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/tyrannicaltoucan/vim-quantum'
 Plug 'https://github.com/chrisbra/colorizer'
 Plug 'https://github.com/altercation/vim-colors-solarized'
+Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 " Removed since already integrated in airline Plug 'https://github.com/bling/vim-bufferline'
 
 " Syntax highlighting
@@ -49,6 +50,8 @@ Plug 'https://github.com/craigemery/vim-autotag'
 Plug 'https://github.com/vim-scripts/taglist.vim'
 Plug 'https://github.com/elzr/vim-json'
 Plug 'https://github.com/pearofducks/ansible-vim'
+Plug 'https://github.com/hashivim/vim-terraform'
+
 
 " Code formatting
 Plug 'https://github.com/junegunn/vim-easy-align'
@@ -110,8 +113,24 @@ Plug 'aquach/vim-http-client', { 'commit': '777c9a44872d14ae8d1d13f13c13a61da4ae
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Custom Vim Helper Functions
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" The absolute resolved directory this current script lives in
+let s:SCRIPT_DIR = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+
+function! LoadNvimPluginConfig(pluginName)
+	execute printf("source %s/plugin-configs/%s/%s", s:SCRIPT_DIR, a:pluginName, "/config.vim")
+endfunction
+
+function! ShowNvimPluginConfigs()
+	silent !clear
+	execute "!" . 'find ' . s:SCRIPT_DIR . '/plugin-configs -mindepth 2 -type f -name "config.vim"'
+endfunction
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  General Vim config
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 " Vim Language cheatsheet: https://devhints.io/vimscript
 let mapleader = ","
 set wrap "enable wrapping. Use `set nowrap` to disable
@@ -509,6 +528,13 @@ let g:vim_json_syntax_conceal = 0
 let g:ansible_unindent_after_newline = 1
 let g:ansible_yamlKeyName = 'yamlKey'
 let g:ansible_name_highlight = 'd'
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     iamcco/markdown-preview config
+"   https://github.com/iamcco/markdown-preview.vim
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call LoadNvimPluginConfig('iamcco/markdown-preview.vim')
+
 
 
 
