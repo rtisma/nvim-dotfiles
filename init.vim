@@ -20,6 +20,7 @@ endif
 call plug#begin()
 " Markdown processing
 Plug 'https://github.com/iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+"Plug 'https://github.com/iamcco/markdown-preview.nvim',
 Plug 'https://github.com/gabrielelana/vim-markdown'
 Plug 'https://github.com/SidOfc/mkdx' , { 'tag' : 'v1.9.0' }
 
@@ -30,6 +31,7 @@ Plug 'https://github.com/ctrlpvim/ctrlp.vim'
 Plug 'https://github.com/easymotion/vim-easymotion'
 Plug 'https://github.com/bronson/vim-visual-star-search'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'https://github.com/inside/vim-grep-operator'
 
 " Appearance
 Plug 'https://github.com/chrisbra/Colorizer'
@@ -45,12 +47,19 @@ Plug 'https://github.com/powerman/vim-plugin-AnsiEsc'
 Plug 'https://github.com/ekalinin/dockerfile.vim'
 Plug 'https://github.com/stephpy/vim-yaml'
 Plug 'https://github.com/uarun/vim-protobuf'
+
 Plug 'https://github.com/soramugi/auto-ctags.vim'
 Plug 'https://github.com/craigemery/vim-autotag'
 Plug 'https://github.com/vim-scripts/taglist.vim'
+"Plug 'https://github.com/preservim/tagbar'
+"Plug 'https://github.com/majutsushi/tagbar'
+
 Plug 'https://github.com/elzr/vim-json'
 Plug 'https://github.com/pearofducks/ansible-vim'
 Plug 'https://github.com/hashivim/vim-terraform'
+"Plug 'https://github.com/b4b4r07/vim-hcl'
+"Plug 'https://github.com/jvirtanen/vim-hcl'
+
 
 
 " Code formatting
@@ -66,7 +75,7 @@ Plug 'https://github.com/matze/vim-move'
 "     Plug 'https://github.com/raimondi/delimitmate'
 
 " Git stuff
-Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v3.4' }
+Plug 'https://github.com/tpope/vim-fugitive' , { 'tag' : 'v3.7' }
 Plug 'https://github.com/gregsexton/gitv'
 Plug 'https://github.com/arkwright/vim-radar'
 Plug 'https://github.com/airblade/vim-gitgutter'
@@ -135,8 +144,10 @@ endfunction
 let mapleader = ","
 set wrap "enable wrapping. Use `set nowrap` to disable
 set nu "enable numbering. Use `set nonu` to disable
-set tabstop=4 "a tab will have the same length as 4 whitespaces
-set shiftwidth=0 " always have tab match tabstop
+set tabstop=2 "a tab will have the same length as 4 whitespaces
+set shiftwidth=2 " always have tab match tabstop
+set expandtab "When this option is enabled, vi will use spaces instead of tabs
+
 
 
 " Get Rid of stupid Goddamned help keys
@@ -478,6 +489,11 @@ augroup markdownSpell
     autocmd BufRead,BufNewFile *.md setlocal spell
 augroup END
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  Groovy
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd BufRead,BufNewFile Jenkinsfile setf groovy
+autocmd BufRead,BufNewFile Jenkinsfile.* setf groovy
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-system-copy
@@ -533,9 +549,45 @@ let g:ansible_name_highlight = 'd'
 "     iamcco/markdown-preview config
 "   https://github.com/iamcco/markdown-preview.vim
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call LoadNvimPluginConfig('iamcco/markdown-preview.vim')
+"Note: was causing issues when trying to diff a markdown file. Disabled since
+"not that usefull
+"call LoadNvimPluginConfig('iamcco/markdown-preview.vim')
+"
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"     vim-grep-operator config
+"   https://github.com/inside/vim-grep-operator
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
+vmap <leader>g <Plug>GrepOperatorOnCurrentDirectory
+nmap <leader><leader>g <Plug>GrepOperatorWithFilenamePrompt
+vmap <leader><leader>g <Plug>GrepOperatorWithFilenamePrompt
+let g:grep_operator_set_search_register = 1
+
+""
+"
+""
+"" Plug 'https://github.com/xolox/vim-shell'
+function! GoogleSearch()
+     let searchterm = getreg("g")
+     silent! exec "silent! !firefox \"http://google.com/search?q=" . searchterm . "\" &"
+endfunction
+" Visually select the text, then press F6 to search in google
+vnoremap <F6> "gy<Esc>:call GoogleSearch()<CR>
+
+" In normal mode, search for exact word under cursor 
+noremap <F6> viw"gy<Esc>:call GoogleSearch()<CR>
+
+" In normal mode, search for text between double quotes (")
+noremap <F7> vi""gy<Esc>:call GoogleSearch()<CR>
 
 
-
-
-
+"""""""""""""
+" Test rename
+"""""""""""""
+" Function to rename the variable under the cursor
+function! Rnvar()
+  let word_to_replace = expand("<cword>")
+  let replacement = input("new name: ")
+  execute '%s/\(\W\)' . word_to_replace . '\(\W\)/\1' . replacement . '\2/gc'
+endfunction
+nnoremap gr :call Rnvar()<CR>
